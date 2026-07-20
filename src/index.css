@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Default cursor for everything */
+* {
+  cursor:
+    url("/chess.svg") 12 12,
+    auto;
+}
+
+/* New cursor when hovering over links, buttons, or clickable items */
+a:hover,
+button:hover,
+.clickable:hover {
+  cursor:
+    url("/chess-rook.svg") 12 12,
+    auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f7f4ee;
+  color: #231f20;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+::selection {
+  background: #c7a76a;
+  color: white;
+}
