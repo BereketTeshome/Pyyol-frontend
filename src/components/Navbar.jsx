@@ -5,21 +5,23 @@ const links = ["Home", "Openings", "Learn", "Masters", "Pricing"];
 
 export default function Navbar() {
   return (
-    <header className="absolute top-0 left-0 w-full z-50">
-      <div className="max-w-[1600px] mx-auto px-10 pt-8 flex items-center justify-between">
+    <header className="absolute inset-x-0 top-0 z-[100]">
+      <div className="mx-auto flex max-w-[1700px] items-center justify-between px-8 xl:px-12 pt-8">
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-black tracking-[8px] text-2xl text-[#2F2A23]"
+          className="select-none"
         >
-          Pyyol
+          <h1 className="text-2xl font-black tracking-[9px] text-white">
+            Pyyol
+          </h1>
         </motion.div>
 
-        {/* Floating Nav */}
+        {/* Navigation */}
         <motion.nav
-          initial={{ y: -30, opacity: 0 }}
+          initial={{ y: -25, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="
@@ -27,14 +29,14 @@ export default function Navbar() {
             lg:flex
             items-center
             gap-2
-            px-3
-            py-2
             rounded-full
-            bg-[#f8f4ee2f]
-            backdrop-blur-xl
-            shadow-[0_8px_30px_rgba(0,0,0,0.05)]
-            ring-1
-            ring-white/60
+            border
+            border-white/10
+            bg-gray-100/10
+            backdrop-blur-3xl
+            px-3
+            py-3
+            shadow-[0_20px_60px_rgba(0,0,0,.35)]
           "
         >
           {links.map((item) => (
@@ -42,27 +44,26 @@ export default function Navbar() {
               key={item}
               href="#"
               whileHover={{
-                y: -1,
+                y: -2,
               }}
               transition={{
                 duration: 0.18,
               }}
               className={`
                 relative
-                px-5
-                py-2
                 rounded-full
+                px-6
+                py-2.5
                 text-[13px]
                 font-medium
-                tracking-wide
+                tracking-[0.18em]
                 transition-all
-                duration-200                
-                cursor-pointer 
+                duration-300
 
                 ${
                   item === "Home"
-                    ? "bg-[#c4bfb585] text-[#2F2A23]"
-                    : "text-[#756B5D] hover:bg-[#74716e4d] hover:text-[#2F2A23]"
+                    ? "bg-white/10 text-white shadow-[0_0_30px_rgba(255,255,255,.08)]"
+                    : "text-white/70 hover:bg-white/8 hover:text-white"
                 }
               `}
             >
@@ -74,48 +75,71 @@ export default function Navbar() {
         {/* CTA */}
         <motion.button
           whileHover={{
-            y: -1,
-            scale: 1.02,
+            scale: 1.03,
+            y: -2,
           }}
           whileTap={{
             scale: 0.98,
           }}
-          transition={{
-            duration: 0.2,
-          }}
           className="
-            flex
+            group
+            relative
+            hidden
+            md:flex
             items-center
-            gap-2
+            gap-3
+            overflow-hidden
             rounded-full
-            bg-white
+            right-3
             border
-            border-[#E3D6BE]
-            px-6
-            py-3
-            text-[#2F2A23]
+            border-white/15
+
+            bg-[rgba(20,20,20,0.68)]
+            backdrop-blur-[24px]
+
+            px-7
+            py-3.5
+
             font-medium
-            shadow-[0_6px_20px_rgba(0,0,0,0.05)]
-            hover:bg-[#FBF8F3]
+            text-white
+
+            shadow-[0_15px_50px_rgba(0,0,0,.45)]
+
+            transition-all
+            duration-300
+
+            hover:border-[#D4C08A]/40
+            hover:bg-[rgba(25,25,25,0.78)]
+            hover:shadow-[0_0_45px_rgba(212,192,138,.18)]
+
             cursor-pointer
-          "
+            "
         >
-          Play
-          <motion.div
-            whileHover={{
-              x: 2,
-            }}
-            transition={{
-              duration: 0.2,
-            }}
-          >
-            <ArrowUpRight size={17} />
+          <span>Play Now</span>
+
+          <motion.div className="relative z-10" whileHover={{ x: 2, y: -2 }}>
+            <ArrowUpRight size={18} color="#D4C08A" />
           </motion.div>
         </motion.button>
 
         {/* Mobile */}
-        <button className="lg:hidden cursor-pointer">
-          <Menu />
+        <button
+          className="
+            lg:hidden
+            flex
+            items-center
+            justify-center
+            h-12
+            w-12
+            rounded-full
+            border
+            border-white/10
+            bg-black/20
+            backdrop-blur-xl
+            text-white
+          "
+        >
+          <Menu size={22} />
         </button>
       </div>
     </header>

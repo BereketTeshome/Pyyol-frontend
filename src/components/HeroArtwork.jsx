@@ -41,7 +41,7 @@ export default function HeroArtwork() {
       /> */}
 
       {/* Main Artwork */}
-      <motion.div
+      {/* <motion.div
         animate={{
           y: [0, -12, 0],
         }}
@@ -71,7 +71,7 @@ export default function HeroArtwork() {
             className="w-[400px] object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,.25)]"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
       <motion.div
         className="absolute inset-0 rounded-full blur-[120px]"
         style={{

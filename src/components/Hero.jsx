@@ -4,15 +4,7 @@ import Fog from "./Fog";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[130vh] overflow-hidden bg-[#F7F4EE]">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#faf8f4] via-[#f5f0e8] to-[#ece2d1]" />
-
-      {/* Light */}
-      <div className="absolute top-0 right-0 w-[900px] h-[900px] bg-[#d7bf8a]/20 blur-[180px] rounded-full" />
-
-      <div className="absolute -left-60 top-40 w-[700px] h-[700px] bg-white blur-[180px] rounded-full opacity-80" />
-
+    <section className="relative min-h-[130vh] overflow-hidden bg-black">
       {/* Artwork */}
       <Fog />
       <HeroArtwork />
@@ -25,11 +17,11 @@ export default function Hero() {
         // className="absolute left-14 top-[180px] z-20 max-w-[520px]"
         className="absolute left-24 xl:left-32 top-[220px] z-20 max-w-[520px]"
       >
-        <p className="uppercase tracking-[10px] text-[#b89253] text-sm mb-8">
+        <p className="uppercase tracking-[10px] text-white/60 text-sm mb-8">
           Pyyol Chess Experience
         </p>
 
-        <h1 className="font-serif text-[95px] xl:text-[103px] leading-[0.82] text-[#221d1a]">
+        <h1 className="font-serif text-[95px] xl:text-[103px] leading-[0.82] text-white drop-shadow-[0_10px_35px_rgba(0,0,0,.8)]">
           Rule
           <br />
           The
@@ -37,17 +29,49 @@ export default function Hero() {
           Board.
         </h1>
 
-        <p className="mt-10 text-lg leading-9 text-neutral-600 max-w-md">
+        <p className="mt-10 text-lg leading-9 text-white/70 max-w-md">
           Master every move with AI analysis, legendary openings and premium
           chess experiences designed for champions.
         </p>
       </motion.div>
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover bg-black/45"
+      >
+        <source src="/chess-bg.mp4" type="video/mp4" />
+      </video>
       <div
-        className="absolute inset-0 opacity-[0.7] mix-blend-multiply pointer-events-none"
+        className="absolute inset-0 z-[1]"
         style={{
-          backgroundImage: "url('/marble.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          background: `
+            radial-gradient(
+              circle at 90% 8%,
+              rgba(0,0,0,.75) 0%,
+              rgba(0,0,0,.55) 25%,
+              rgba(0,0,0,.25) 50%,
+              transparent 75%
+            ),
+
+            radial-gradient(
+              circle at center,
+              rgba(255,255,255,.03) 0%,
+              rgba(0,0,0,.15) 35%,
+              rgba(0,0,0,.55) 65%,
+              rgba(0,0,0,.9) 100%
+            ),
+
+            linear-gradient(
+              180deg,
+              rgba(0,0,0,.45) 0%,
+              rgba(0,0,0,.3) 35%,
+              rgba(0,0,0,.55) 65%,
+              rgba(0,0,0,.92) 100%
+            )
+          `,
         }}
       />
 
@@ -56,23 +80,22 @@ export default function Hero() {
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        // className="absolute right-[14%] bottom-24 z-30 w-[320px] rounded-[34px] border border-white/50 bg-white/30 backdrop-blur-3xl p-8 shadow-2xl"
-        className=" absolute right-[10%] hidden md:block bottom-40 z-30 w-[340px] rounded-[40px] bg-white/7 backdrop-blur-[5px] border border-white/40 shadow-[0_30px_80px_rgba(0,0,0,.12)] p-10 overflow-hidden "
+        className=" absolute right-[10%] hidden md:block bottom-40 z-30 w-[340px] rounded-[40px] bg-black/20 backdrop-blur-[5px] border border-white/10 shadow-[0_40px_120px_rgba(0,0,0,.55)] p-10 overflow-hidden "
       >
-        <p className="uppercase tracking-[6px] text-xs text-[#b89253]">
+        <p className="uppercase tracking-[6px] text-xs text-[#d4c08a]">
           AI ANALYSIS
         </p>
 
-        <h3 className="mt-6 font-serif text-4xl leading-tight">
+        <h3 className="mt-6 font-serif text-4xl text-white leading-tight">
           Every move.
           <br />
           Calculated.
         </h3>
 
         <div className="mt-8 flex items-center justify-between">
-          <span className="text-neutral-500">Accuracy</span>
+          <span className="text-white/60">Accuracy</span>
 
-          <span className="font-semibold text-3xl">98%</span>
+          <span className="font-semibold text-3xl text-white">98%</span>
         </div>
 
         <div className="absolute inset-0 overflow-hidden rounded-[40px]">

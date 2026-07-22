@@ -3,7 +3,7 @@
 /* Default cursor for everything */
 * {
   cursor:
-    url("/chess.svg") 12 12,
+    url("/chess-piece-svgrepo-com.svg") 12 12,
     auto;
 }
 
@@ -11,9 +11,7 @@
 a:hover,
 button:hover,
 .clickable:hover {
-  cursor:
-    url("/chess-rook.svg") 12 12,
-    auto;
+  cursor: pointer;
 }
 
 html {
